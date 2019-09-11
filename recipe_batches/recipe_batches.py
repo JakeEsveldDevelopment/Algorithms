@@ -1,9 +1,20 @@
 #!/usr/bin/python
 
 import math
+import sys
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  max_batches = sys.maxsize
+
+  for i in recipe:  
+    try:
+      ingredients_i_batches = ingredients[i] // recipe[i]
+      if ingredients_i_batches < max_batches:
+        max_batches = ingredients_i_batches
+    except:
+      max_batches = 0
+
+  return max_batches
 
 
 if __name__ == '__main__':
